@@ -28,7 +28,43 @@ Before you begin, ensure you have the following sorted:
 
 ## ⚙️ Installation & Setup
 
-1. **Clone the repository:**
+1. **Clone the repository and enter it:**
 ```bash
-   git clone [https://github.com/ZahwaAit-e/Email_Agent.git](https://github.com/ZahwaAit-e/Email_Agent.git)
-   cd Email_Agent
+git clone https://github.com/ZahwaAit-e/Email_Agent.git
+cd Email_Agent
+```
+
+2. **Install the dependencies:**
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install google-adk google-genai google-api-python-client google-auth-httplib2 google-auth-oauthlib mcp python-dotenv
+```
+
+3. **Configure your credentials:**
+   * Place your Google OAuth client file at `credentials.json`.
+   * Create a `.env` file in the repository root and add your Gemini API key:
+```dotenv
+GOOGLE_API_KEY=your_gemini_api_key
+```
+
+4. **Authenticate with Gmail:**
+```bash
+python authenticate.py
+```
+
+   This opens a browser for Google OAuth and creates the local `token.json` file.
+
+5. **Run the agent:**
+```bash
+python -m email_agent.agent
+```
+
+Type `quit` or `exit` to stop the agent. Review generated drafts and email actions before confirming them.
+
+## 🔐 Secrets
+
+The following local credential files are ignored by Git and must never be committed:
+* `.env`
+* `credentials.json`
+* `token.json`
