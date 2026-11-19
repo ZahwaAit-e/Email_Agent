@@ -60,7 +60,8 @@ python authenticate.py
 python -m email_agent.agent
 ```
 
-Type `quit` or `exit` to stop the agent. Review generated drafts and email actions before confirming them.
+When sending an email, the agent displays the recipient, subject, and complete body first.
+It sends only after you explicitly reply `yes`. Type `quit` or `exit` to stop the agent.
 
 ## 🔐 Secrets
 

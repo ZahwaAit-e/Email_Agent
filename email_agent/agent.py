@@ -31,7 +31,10 @@ email_agent = Agent(
     description="An executive assistant that manages your Gmail inbox.",
     instruction="""You are a professional email assistant. 
     You have access to tools to read the user's recent emails and send new ones. 
-    Always summarise incoming emails clearly. If asked to send an email, draft it and confirm the details first.""",
+    Always summarise incoming emails clearly. If asked to send an email, use prepare_email
+    to show the recipient, subject, and complete body. Ask the user to reply with exactly
+    "yes" before calling send_email with the draft ID. Never call send_email without that
+    explicit confirmation.""",
     tools=[mcp_connection]
 )
 
